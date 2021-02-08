@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@100&family=Montserrat:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap');
 
 /* variables */
 
 :root{
     --nieve: #ebebeb;
+    /*
+    --secundario: rgb(105, 209, 128);
+    */
     --secundario: rgb(105, 209, 128);
     --primario: #b05aca;
     --grisclaro: rgb(185, 185, 185);
@@ -27,13 +32,16 @@
 
 body{
     background-color: var(--nieve);
-    background-image: url(../assets/images/pata-perro.svg),url(../assets/images/pata-perro2.svg);
-    background-repeat: repeat-y, repeat-y;
-    background-position-y: 280px, 40px;
-    background-position-x: left, right;
-    background-size: 300px,300px;
-    background-attachment: scroll;
-    height: 3000px;
+    /*
+    background-image: url(../assets/images/9d9561c6dca5945f1a22a3e139573c36cb61d951.jpg);
+    background-repeat: no-repeat;
+    background-position: 13em 40px;
+    background-attachment: fixed;
+    background-size: cover;
+    */
+    display:grid;
+    grid-template-columns: 1 100%;
+    align-content: space-between;
 }
 
 input:-webkit-autofill,
@@ -44,42 +52,38 @@ input:-webkit-autofill:active {
 }
 
 /* topnav */
-
 .topnav{
     overflow-x: auto;
     overflow-y: hidden;
     z-index: 1;
-    position: fixed;
-    list-style-type: none;
-    top:0;
-    left:0;
+    position: absolute;
     width:100%;
     display: flex;
-    height: 60px;
+    height: 50px;
     justify-content: space-between;
     align-items: center;
     list-style: none;
     background-color: var(--negro);
-    outline: 2px solid var(--nieve);
+    outline: 2px solid grey;
 }
 
 .topnav--link{
-    display: inline-block;
-    position: relative;
+    display: block;
     padding: 5px 15px;
     background-color: transparent;
     margin: 0 20px;
     text-align: center;
 	color: var(--nieve);
     max-height: 100%;
+    min-width: max-content;
     text-decoration:none;
-    font-family: 'Montserrat Subrayada', sans-serif;
+    font-weight: 300;
 }
 
 .topnav--link:hover{
-    border-top: 3px solid var(--primario);
-    border-left: 3px solid var(--primario);
-    box-shadow: 3px 2px var(--secundario);
+    border-top: 2px solid var(--primario);
+    border-left: 2px solid var(--primario);
+    box-shadow: 2px 2px var(--secundario);
     color: var(--nieve);
     transition-duration: 0.2s;
 }
@@ -94,7 +98,7 @@ input:-webkit-autofill:active {
 
 
 .home{
-    height: 60px;
+    height: 50px;
     outline: none;
     border:none;
 }
@@ -129,42 +133,50 @@ input:-webkit-autofill:active {
 
 /* main */
 
-
-.mainform,.mainformfooter{
-    margin: auto;
-}
-
 .maincontainer{
     display: flex;
 }
 
-.maincontainer--productslist{
-    margin-top: 60px;
-    position: absolute;
+.maincontainer--productscontainer{
+    left: 0;
     right: 0;
-    left: 13em;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: flex-start;
+}
+
+.maincontainer--productslist{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min-content, 320px));
+    grid-auto-columns: 330px;
+    grid-template-rows: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-columns: 330px;
+    grid-auto-flow: row;
+    margin-bottom: 40px;
+    justify-content: space-around;
+    grid-gap: 10px;
+}
+
+.maincontainer--productscontainer > h1{
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-align: end center;
+    margin: 70px 10px 20px;
+    color: black;
 }
 
 .maincontainer--productslist--product{
-    text-transform: uppercase;
     text-decoration: none;
     display: flex;
     flex-direction: column;
-    width: 310px;
-    margin: 15px;
-    border-bottom: 3px solid var(--primario);
+    width: 100%;
     color: var(--negro);
+    background-color:var(--nieve);
+    place-items: center;
 }
 
+
 .maincontainer--productslist--product:hover{
-    background-color:rgba(0, 0, 0, 0.185);
-    border: 5px solid rgba(192, 59, 181, 0.425);
+    background-color: var(--grisclaro);
     transition-duration: .3s;
+    border: 5px solid var(--grisclaro);
 }
 
 .maincontainer--productslist--product > img{
@@ -173,42 +185,68 @@ input:-webkit-autofill:active {
 }
 
 .maincontainer--productslist--product > span{
+    display: inline;
     margin: 4px;
+    font-weight: 300;
+    letter-spacing: 1px;
 }
 
-
-.maincontainer--productslist--product--title{
+.maincontainer--productslist--product > span::first-line{
+    margin: 4px;
+    font-weight: 500;
+    font-size: 17px;
 }
 
 .maincontainer--menu{
     position: fixed;
-    top:0;
+    top:0px;
     left:0;
     bottom: 0;
     height:100%;
     width: 13em;
-    background-color: var(--primario);
+    background-color: var(--grisoscuro);
     color:var(--nieve);
-    display: flex;
+    display: none;
     flex-direction: column;
-    margin-top: 60px;
-    padding:30px;
+    padding:50px 20px 0;
+}
+
+@media screen and (min-width: 680px){
+    .maincontainer--menu{
+        display: flex;
+    }
+
+    .maincontainer--productscontainer{
+        position: absolute;
+        right: 0;
+        left: 13em;
+    }
+    
+
 }
 
 .maincontainer--menu--title{
     text-transform: uppercase;
+    letter-spacing: 2px;
     display: flex;
     align-items: center;
     width: 150px;
     height: 50px;
     font-size: 13px;
+    font-weight:500;
     justify-content:center;
 }
 
 .maincontainer--menu--filter{
-    border-bottom: 2px solid var(--negro);
+    border-bottom: 2px solid var(--secundario);
     text-align: start;
     padding: 10px;
+    letter-spacing: 1px;
+}
+
+.maincontainer--menu--filter:nth-child(odd){
+    border-bottom: 2px solid var(--primario);
+
 }
 
 .maincontainer--menu--filter > a{
@@ -224,12 +262,11 @@ input:-webkit-autofill:active {
 
 .footer{
     position: fixed;
-    font-size: 12px;
-    padding: 8px 50px;
-    height: 30px;
-    width: 100%;
     bottom: 0;
+    height: 30px;
+    font-size: 12px;
+    width: 100%;
     color: var(--nieve);
-    align-self: flex-end;
     background-color: var(--negro);
+    padding: 8px 50px;
 }

@@ -33,109 +33,107 @@
 </head>
 
 <body>
-
     <header>
-        <nav>
-            <ul class="topnav">
-                <li class="topnav--item">
-                    <a class="topnav--link" href="#home" id="active">
-                        <img class="home" src="/assets/images/logoperro.svg" alt="Logo SIN TAGG">
-                    </a>
-                </li>
-                <li css="topnav--item">
-                    <a class="topnav--link" href="busquedaRemeras.php">PRODUCTOS</a>
-                </li>
-                <li css="topnav--item">
-                    <a class="topnav--link" href="aboutUs.php">SOBRE SINTAGG</a>
-                </li>
-                <li css="topnav--item">
-                    <a class="topnav--link" href="contecto.php">CONTACTO</a>
-                </li>
-                <li css="topnav--item">
-                    <a class="topnav--link" href="cuenta.php">CUENTA</a>
-                </li>
-                <li css="topnav--item">
-                    <div class="mainform--usuario">
-                        <input placeholder="Busca un producto..." class="topnav--input" type="text" id="user"
-                            name="user">
-                    </div>
-                </li>
-                <li css="topnav--item">
-                    <a class="topnav--link" href="cerrarSesion.php">CERRAR SESION</a>
-                </li>
-            </ul>
+        <ul class="topnav">
+            <li class="topnav--item">
+                <a class="topnav--link" href="#home" id="active">
+                    <img class="home" src="/assets/images/logoperro.svg" alt="Logo SIN TAGG">
+                </a>
+            </li>
+            <li css="topnav--item">
+                <a class="topnav--link" href="busquedaRemeras.php">PRODUCTOS</a>
+            </li>
+            <li css="topnav--item">
+                <a class="topnav--link" href="aboutUs.php">SOBRE SINTAGG</a>
+            </li>
+            <li css="topnav--item">
+                <a class="topnav--link" href="contecto.php">CONTACTO</a>
+            </li>
+            <li css="topnav--item">
+                <a class="topnav--link" href="cuenta.php">CUENTA</a>
+            </li>
+            <li css="topnav--item">
+                <div class="mainform--usuario">
+                    <input placeholder="Busca un producto..." class="topnav--input" type="text" id="user" name="user">
+                </div>
+            </li>
+            <li css="topnav--item">
+                <a class="topnav--link" href="cerrarSesion.php">CERRAR SESION</a>
+            </li>
+        </ul>
 
-            <?php 
-                require 'topnav.php'; 
-                getTopnav("index");
-            ?>
-        </nav>
+        <?php 
+        require 'topnav.php'; 
+        getTopnav("index");
+    ?>
     </header>
-
-    <div class="maincontainer">
-        <div class="maincontainer--menu">
-            <div class="maincontainer--menu--title">
+    <main>
+        <div class="main-container">
+            <div class="maincontainer--menu">
+                <div class="maincontainer--menu--title">
+                    <h1>filtros</h1>
+                </div>
+                <div class="maincontainer--menu--filter">
+                    <a href="#">Precio</a>
+                </div>
+                <div class="maincontainer--menu--filter">
+                    <a href="#">Color</a>
+                </div>
+                <div class="maincontainer--menu--filter">
+                    <a href="#">Talle</a>
+                </div>
+                <div class="maincontainer--menu--filter">
+                    <a href="#">Stock</a>
+                </div>
+                <div class="maincontainer--menu--filter">
+                    <a href="#">Prenda</a>
+                </div>
+                <div class="maincontainer--menu--filter">
+                    <a href="#">Diseño</a>
+                </div>
+            </div>
+            <div class="maincontainer--productscontainer">
                 <h1>Productos</h1>
-            </div>
-            <div class="maincontainer--menu--filter">
-                <a href="#">Filtro 1</a>
-            </div>
-            <div class="maincontainer--menu--filter">
-                <a href="#">Filtro 2</a>
-            </div>
-            <div class="maincontainer--menu--filter">
-                <a href="#">Filtro 3</a>
-            </div>
-            <div class="maincontainer--menu--filter">
-                <a href="#">Filtro 4</a>
-            </div>
-            <div class="maincontainer--menu--filter">
-                <a href="#">Filtro 5</a>
-            </div>
-            <div class="maincontainer--menu--filter">
-                <a href="#">Filtro 6</a>
-            </div>
-            <div class="maincontainer--menu--filter">
-                <a href="#">Filtro 7</a>
+                <div class="maincontainer--productslist">
+                    <a href="#" class="maincontainer--productslist--product">
+                        <img src="assets/images/vterminada.png" alt="">
+                        <span>Remera en V 3 colores manga corta <br> $1500 o 12 cuotas de $144.36 <br> 2 combinaciones de
+                            colores</span>
+                    </a>
+                    <a href="#" class="maincontainer--productslist--product">
+                        <img src="assets/images/vterminada.png" alt="">
+                        <span>Remera espiral 2 colores manga corta <br> $1500 o 12 cuotas de $144.36 <br> 3 combinaciones de
+                            colores</span>
+                    </a>
+                    <a href="#" class="maincontainer--productslist--product">
+                        <img src="assets/images/vterminada.png" alt="">
+                        <span>Remera en V <br> $1500 o 12 cuotas de $144.36 <br> 3 combinaciones de colores</span>
+                    </a>
+                    <a href="#" class="maincontainer--productslist--product">
+                        <img src="assets/images/vterminada.png" alt="">
+                        <span>Remera en V <br> $1500 o 12 cuotas de $144.36 <br> 3 combinaciones de colores</span>
+                    </a>
+                    <a href="#" class="maincontainer--productslist--product">
+                        <img src="assets/images/vterminada.png" alt="">
+                        <span>Remera en V <br> $1500 o 12 cuotas de $144.36 <br> 3 combinaciones de colores</span>
+                    </a>
+                    <a href="#" class="maincontainer--productslist--product">
+                        <img src="assets/images/vterminada.png" alt="">
+                        <span>Remera en V <br> $1500 o 12 cuotas de $144.36 <br> 3 combinaciones de colores</span>
+                    </a>
+                    <a href="#" class="maincontainer--productslist--product">
+                        <img src="assets/images/vterminada.png" alt="">
+                        <span>Remera en V <br> $1500 o 12 cuotas de $144.36 <br> 3 combinaciones de colores</span>
+                    </a>
+        
+                </div>
+        
             </div>
         </div>
-        <div class="maincontainer--productslist">
-            <a href="#" class="maincontainer--productslist--product">
-                <img src="assets/images/v terminada.jpg" alt="">
-                <span>Remera en V <br> $1500 o 12 cuotas de $144.36 <br> 3 combinaciones de colores</span>
-            </a>
-            <a href="#" class="maincontainer--productslist--product">
-                <img src="assets/images/v terminada.jpg" alt="">
-                <span>Remera en V <br> $1500 o 12 cuotas de $144.36 <br> 3 combinaciones de colores</span>
-            </a>
-            <a href="#" class="maincontainer--productslist--product">
-                <img src="assets/images/v terminada.jpg" alt="">
-                <span>Remera en V <br> $1500 o 12 cuotas de $144.36 <br> 3 combinaciones de colores</span>
-            </a>
-            <a href="#" class="maincontainer--productslist--product">
-                <img src="assets/images/v terminada.jpg" alt="">
-                <span>Remera en V <br> $1500 o 12 cuotas de $144.36 <br> 3 combinaciones de colores</span>
-            </a>
-            <a href="#" class="maincontainer--productslist--product">
-                <img src="assets/images/v terminada.jpg" alt="">
-                <span>Remera en V <br> $1500 o 12 cuotas de $144.36 <br> 3 combinaciones de colores</span>
-            </a>
-            <a href="#" class="maincontainer--productslist--product">
-                <img src="assets/images/v terminada.jpg" alt="">
-                <span>Remera en V <br> $1500 o 12 cuotas de $144.36 <br> 3 combinaciones de colores</span>
-            </a>
-            <a href="#" class="maincontainer--productslist--product">
-                <img src="assets/images/v terminada.jpg" alt="">
-                <span>Remera en V <br> $1500 o 12 cuotas de $144.36 <br> 3 combinaciones de colores</span>
-            </a>
-            
-        </div>
-    </div>
-
-
-<footer class=" footer">
-                Teo Alejandro Costa Pires ~ SIN TAGG
-                </footer>
+    </main>
+    <footer class="footer">
+        Teo Alejandro Costa Pires ~ SIN TAGG
+    </footer>
 </body>
 
 </html>
