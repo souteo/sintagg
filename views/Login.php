@@ -1,4 +1,15 @@
+<?php
+setcookie("seleccionarIdioma", "es", time()+86000);
 
+if (isset($_COOKIE["usuario"])) {
+    session_start();
+    $_SESSION["user"]=$_COOKIE["usuario"];;
+    header("location: busquedaRemeras.php");
+}
+?>
+
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,28 +34,59 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-
+    
     <link rel="stylesheet" href="../style/normalize.css">
-    <link rel="stylesheet" href="../style/products.css">
+    <link rel="stylesheet" href="../style/login.css">
 
-    <title>Sin T.A.G.G.</title>
+    <title>Sin T.A.G.G. ~ Inicia sesi�n</title>
 </head>
 
 <body>
     <header>
         <ul class="topnav">
         <?php require '../controller/Topnav.php'; 
-            $file = "cuenta";
+            $file = "productos";
             getTopnav($file);
         ?>
         </ul>
 
     </header>
+    
     <main>
+        <div class="maincontainer"> 
+            <form class="mainform" action="../controller/ValidacionLogin.php" method="post">
+        
+                <h1>INICIAR SESION</h1>
+                <div class="mainform--usuario">
+                    <!--<label for="user" class="mainform--label">Usuario:</label> <br>-->
+                    <input required placeholder="Usuario" class="mainform--input" type="text" id="user" name="user">
+                </div>
+            
+                <div class="mainform--contraseña">
+                    <!--<label for="pw" class="mainform--label">Contraseña:</label> <br>-->
+                    <input required placeholder="Contraseña" class="mainform--input" type="password" id="pw" name="pw">
+                </div>
+            
+                <div class="mainform--recordar">
+                    <label for="recordar" class="recordar--label">Recordar contraseña
+                        <input class="recordar--checkbox" type="checkbox" id="recordar" name="recordar">
+                    </label>
+                </div>
+                
+                <button type="submit" class="mainform--enviar" type="submit" id="boton" >Iniciar sesión</button>
+            
+            </form>
+            
+            <div class="mainformfooter">
+                <a href="formRegistro.php" class="mainformfooter--link">No tengo una cuenta</a>
+            </div>
+        </div>
     </main>
+    
     <footer class="footer">
         Teo Alejandro Costa Pires ~ SIN TAGG
     </footer>
+    
 </body>
 
 </html>

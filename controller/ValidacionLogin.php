@@ -1,6 +1,6 @@
 <?php
-require 'index.php';
-require 'Conexion.php';
+
+require '../connection/Conexion.php';
 
 try {
     
@@ -25,7 +25,7 @@ try {
             if (isset($_POST["recordar"])) {
                 setcookie("usuario", $_POST["user"], time()+86400);
             }
-            header("location: busquedaRemeras.php");
+            header("location: ../views/Products.php");
         };
     }
 } catch (Exception $e) {

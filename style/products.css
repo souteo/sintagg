@@ -39,9 +39,7 @@ body{
     background-attachment: fixed;
     background-size: cover;
     */
-    display:grid;
-    grid-template-columns: 1 100%;
-    align-content: space-between;
+    overflow-y: scroll;
 }
 
 input:-webkit-autofill,
@@ -68,7 +66,6 @@ input:-webkit-autofill:active {
 }
 
 .topnav--link{
-    display: block;
     padding: 5px 15px;
     background-color: transparent;
     margin: 0 20px;

@@ -1,96 +1,114 @@
-<?php
-session_start();
-require 'GetShirt.php';
-$remeras = new GetShirt();
-
-
-$arrayRemeras= $remeras->getTodasLasRemeras();
-
-?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style/productos.css">
-    <title>SinTAGG webpage</title>
+    <meta name="description" content="Indumentaria urbana hecha a mano de 'Sin TAGG'">
+    <meta name="keywords" content="ropa, remeras, indumentaria, indumentaria urbana, tie-dye, batik, sin tagg, sintagg">
+    <meta name="author" content="Teo Alejandro Costa Pires">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="../assets/favicon.ico/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../assets/favicon.ico/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../assets/favicon.ico/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/favicon.ico/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../assets/favicon.ico/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../assets/favicon.ico/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../assets/favicon.ico/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../assets/favicon.ico/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon.ico/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon.ico/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon.ico/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon.ico/favicon-16x16.png">
+    <link rel="manifest" href="../assets/favicon.ico/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="../style/normalize.css">
+    <link rel="stylesheet" href="../style/products.css">
+
+    <title>Sin T.A.G.G.</title>
 </head>
+
 <body>
-<div class="topnav">
-<?php 
-require 'Topnav.php'; 
-getTopnav("productos");
-?>
-</div>
-<?php
-echo "Hola, " . $_SESSION["user"] . ", este es el listado de remeras disponibles";
-?>
+    <header>
+        <ul class="topnav">
+        <?php require '../controller/Topnav.php'; 
+            $file = "productos";
+            getTopnav($file);
+        ?>
+        </ul>
 
-<div class="tabla">
-<table>
-<tr>
-<td>Id de remera:</td> 
-<td>Color 1:</td>
-<td>Color 2:</td>
-<td>Color 3:</td>
-
-<?php
-$idViejo = NULL;
-foreach ($arrayRemeras as $reme) {
-    $id = $reme->REMERA;
-    
-    if (isset($idViejo) && $id == $idViejo) {
-        echo "<td>" . $reme->COLOR . "</td>";
-    } else {
-        echo "</tr><tr><td>" . $id . "</td><td>" . $reme->COLOR . "</td>";
-    }
-    $idViejo = $id;
- }
-?>
-
-</table>
-</div>
-
-<br> <br>
-
-
-<form action="">
-<label>Buscar remeras por color:</label>
-<input type="text" id="buscar" name="buscar">
-<input type="submit" value="Enviar">
-</form>
-
-<div class="tabla">
-<table>
-<tr>
-<td>Id de remera:</td> 
-<td>Diseño:</td> 
-<td>Color 1:</td>
-<td>Color 2:</td>
-<td>Color 3:</td>
-<?php
-$idViejo = NULL;
-
-if (isset($_GET["buscar"])) {
-    $entrada=$_GET["buscar"];
-    $remeraPorColor= $remeras->getRemeraPorColor($entrada);
-}
-
-foreach ($remeraPorColor as $reme) {
-    $id = $reme->REMERA;
-    
-    if (isset($idViejo) && $id == $idViejo) {
-        echo "<td>" . $reme->COLOR . "</td>";
-    } else {
-        echo "</tr><tr><td>" . $id . "</td><td>" . $reme->DISEÑO . "</td><td>" . $reme->COLOR . "</td>";
-    }
-    $idViejo = $id;
- } ?>
-</table>
-</div>
-
-<div class="pie">
-<footer>Teo Alejandro Costa Pires, 2021</footer>
-</div>
+    </header>
+    <main>
+        <div class="main-container">
+            <div class="maincontainer--menu">
+                <div class="maincontainer--menu--title">
+                    <h1>filtros</h1>
+                </div>
+                <div class="maincontainer--menu--filter">
+                    <a href="#">Precio</a>
+                </div>
+                <div class="maincontainer--menu--filter">
+                    <a href="#">Color</a>
+                </div>
+                <div class="maincontainer--menu--filter">
+                    <a href="#">Talle</a>
+                </div>
+                <div class="maincontainer--menu--filter">
+                    <a href="#">Stock</a>
+                </div>
+                <div class="maincontainer--menu--filter">
+                    <a href="#">Prenda</a>
+                </div>
+                <div class="maincontainer--menu--filter">
+                    <a href="#">Diseño</a>
+                </div>
+            </div>
+            <div class="maincontainer--productscontainer">
+                <h1>Productos</h1>
+                <div class="maincontainer--productslist">
+                    <a href="#" class="maincontainer--productslist--product">
+                        <img src="../assets/images/vterminada.png" alt="">
+                        <span>Remera en V 3 colores manga corta <br> $1500 o 12 cuotas de $144.36 <br> 2 combinaciones de
+                            colores</span>
+                    </a>
+                    <a href="#" class="maincontainer--productslist--product">
+                        <img src="../assets/images/vterminada.png" alt="">
+                        <span>Remera espiral 2 colores manga corta <br> $1500 o 12 cuotas de $144.36 <br> 3 combinaciones de
+                            colores</span>
+                    </a>
+                    <a href="#" class="maincontainer--productslist--product">
+                        <img src="../assets/images/vterminada.png" alt="">
+                        <span>Remera en V <br> $1500 o 12 cuotas de $144.36 <br> 3 combinaciones de colores</span>
+                    </a>
+                    <a href="#" class="maincontainer--productslist--product">
+                        <img src="../assets/images/vterminada.png" alt="">
+                        <span>Remera en V <br> $1500 o 12 cuotas de $144.36 <br> 3 combinaciones de colores</span>
+                    </a>
+                    <a href="#" class="maincontainer--productslist--product">
+                        <img src="../assets/images/vterminada.png" alt="">
+                        <span>Remera en V <br> $1500 o 12 cuotas de $144.36 <br> 3 combinaciones de colores</span>
+                    </a>
+                    <a href="#" class="maincontainer--productslist--product">
+                        <img src="../assets/images/vterminada.png" alt="">
+                        <span>Remera en V <br> $1500 o 12 cuotas de $144.36 <br> 3 combinaciones de colores</span>
+                    </a>
+                    <a href="#" class="maincontainer--productslist--product">
+                        <img src="../assets/images/vterminada.png" alt="">
+                        <span>Remera en V <br> $1500 o 12 cuotas de $144.36 <br> 3 combinaciones de colores</span>
+                    </a>
+        
+                </div>
+        
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        Teo Alejandro Costa Pires ~ SIN TAGG
+    </footer>
 </body>
+
 </html>

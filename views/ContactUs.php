@@ -34,7 +34,7 @@
     <header>
         <ul class="topnav">
         <?php require '../controller/Topnav.php'; 
-            $file = "cuenta";
+            $file = "contactanos";
             getTopnav($file);
         ?>
         </ul>
