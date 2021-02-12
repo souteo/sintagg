@@ -14,20 +14,13 @@ class GetShirt extends Conexion{
     public function GetShirt(){
         parent::__construct();
     }
-    /* obtener con mysqli
-    public function getRemera($color){
-        $resultado= $this->conexiondb->query("SELECT nombre_color FROM colores WHERE id_color= '" . $color . "'");
-        $remeras= $resultado->fetch_all(MYSQLI_ASSOC);
-        return $remeras;
-    }
-    */
     
     public function getTodasLasRemeras(){
         $sql= "SELECT remera.id_remera AS REMERA, colores.nombre_color AS COLOR FROM remeras_colores JOIN remera ON remera.id_remera = remeras_colores.id_remera JOIN colores ON colores.id_color = remeras_colores.id_color ORDER BY remera.id_remera";
         
         $sentencia=$this->conexiondb->prepare($sql);
         
-        $sentencia->execute(array());
+        $sentencia->execute();
         
         $resultado = $sentencia->fetchAll(PDO::FETCH_OBJ);
         
@@ -59,7 +52,25 @@ class GetShirt extends Conexion{
         
         $this->conexiondb = null;
     }
+
+    public function getRemeraPorFiltro($entrada){
+        
+        $color ="%". $entrada."%";
+        
+        $sql= "SELECT remera.id_remera AS REMERA, remera.precio_remera AS PRECIO, diseños.nombre_diseño AS DISEÑO, diseños.descripción_diseño AS DESCRIPCIÓN FROM remera JOIN diseños ON remera.diseño_remera = diseños.id_diseño;";
+  
+        $sentencia = $this->conexiondb->prepare($sql);
+        
+        $sentencia->execute();
+        
+        $resultado = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        
+        $sentencia->closeCursor();
+        
+        return $resultado;
+        
+        
+        $this->conexiondb = null;
+    }
 }
 ?>
-</body>
-</html>
