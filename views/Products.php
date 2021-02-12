@@ -68,39 +68,22 @@
                 </div>
             </div>
             <div class="maincontainer--productscontainer">
-                <h1>Productos</h1>
+                <h1 class="maincontainer--productscontainer--title">Productos</h1>
                 <div class="maincontainer--productslist">
-                    <a href="#" class="maincontainer--productslist--product">
-                        <img src="../assets/images/vterminada.png" alt="">
-                        <span>Remera en V 3 colores manga corta <br> $1500 o 12 cuotas de $144.36 <br> 2 combinaciones de
-                            colores</span>
-                    </a>
-                    <a href="#" class="maincontainer--productslist--product">
-                        <img src="../assets/images/vterminada.png" alt="">
-                        <span>Remera espiral 2 colores manga corta <br> $1500 o 12 cuotas de $144.36 <br> 3 combinaciones de
-                            colores</span>
-                    </a>
-                    <a href="#" class="maincontainer--productslist--product">
-                        <img src="../assets/images/vterminada.png" alt="">
-                        <span>Remera en V <br> $1500 o 12 cuotas de $144.36 <br> 3 combinaciones de colores</span>
-                    </a>
-                    <a href="#" class="maincontainer--productslist--product">
-                        <img src="../assets/images/vterminada.png" alt="">
-                        <span>Remera en V <br> $1500 o 12 cuotas de $144.36 <br> 3 combinaciones de colores</span>
-                    </a>
-                    <a href="#" class="maincontainer--productslist--product">
-                        <img src="../assets/images/vterminada.png" alt="">
-                        <span>Remera en V <br> $1500 o 12 cuotas de $144.36 <br> 3 combinaciones de colores</span>
-                    </a>
-                    <a href="#" class="maincontainer--productslist--product">
-                        <img src="../assets/images/vterminada.png" alt="">
-                        <span>Remera en V <br> $1500 o 12 cuotas de $144.36 <br> 3 combinaciones de colores</span>
-                    </a>
-                    <a href="#" class="maincontainer--productslist--product">
-                        <img src="../assets/images/vterminada.png" alt="">
-                        <span>Remera en V <br> $1500 o 12 cuotas de $144.36 <br> 3 combinaciones de colores</span>
-                    </a>
-        
+                    <?php
+                    require '../controller/GetShirt.php';
+                    $remeras = new GetShirt();
+                    $resultado = $remeras->getTodasLasRemeras();
+                    while($registro=$resultado->fetch(PDO::FETCH_ASSOC)){
+                        
+                        echo '<a href="#" class="maincontainer--productslist--product">';
+                        echo '<img src="../assets/images/vterminada.png" alt="">';
+                        echo '<span class="maincontainer--productscontainer--producttitle">' . $registro['DISEÑO'] . '</span>';
+                        echo '<span class="maincontainer--productscontainer--productdescription">' . $registro['PRECIO'] . '<br> 2 combinaciones de colores</span>';
+                        echo '</a>';
+                    }
+                    ?>;
+                    
                 </div>
         
             </div>

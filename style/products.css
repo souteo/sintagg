@@ -151,12 +151,28 @@ input:-webkit-autofill:active {
     grid-gap: 10px;
 }
 
-.maincontainer--productscontainer > h1{
+.maincontainer--productscontainer--title{
     font-weight: 500;
     letter-spacing: 1px;
     text-align: end center;
     margin: 70px 10px 20px;
     color: black;
+}
+
+.maincontainer--productscontainer--producttitle{
+    font-weight: 700;
+	font-size: 17px;
+    letter-spacing: 1px;
+    text-align: center;
+    color: black;
+}
+
+.maincontainer--productscontainer--productdescription{
+	font-weight: 500;
+	font-size: 17px;
+    letter-spacing: 1px;
+    text-align: center;
+    color: var(--grisoscuro);
 }
 
 .maincontainer--productslist--product{

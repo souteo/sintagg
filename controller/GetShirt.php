@@ -8,14 +8,14 @@
 </head>
 <body>
 <?php
-require 'Conexion.php';
+require '../connection/Conexion.php';
 
 class GetShirt extends Conexion{
     public function GetShirt(){
         parent::__construct();
     }
     
-    public function getTodasLasRemeras(){
+    public function getraro(){
         $sql= "SELECT remera.id_remera AS REMERA, colores.nombre_color AS COLOR FROM remeras_colores JOIN remera ON remera.id_remera = remeras_colores.id_remera JOIN colores ON colores.id_color = remeras_colores.id_color ORDER BY remera.id_remera";
         
         $sentencia=$this->conexiondb->prepare($sql);
@@ -53,21 +53,17 @@ class GetShirt extends Conexion{
         $this->conexiondb = null;
     }
 
-    public function getRemeraPorFiltro($entrada){
-        
-        $color ="%". $entrada."%";
+    public function getTodasLasRemeras(){
         
         $sql= "SELECT remera.id_remera AS REMERA, remera.precio_remera AS PRECIO, diseños.nombre_diseño AS DISEÑO, diseños.descripción_diseño AS DESCRIPCIÓN FROM remera JOIN diseños ON remera.diseño_remera = diseños.id_diseño;";
   
         $sentencia = $this->conexiondb->prepare($sql);
         
-        $sentencia->execute();
+        $sentencia->execute();;
         
-        $resultado = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $sentencia;
         
         $sentencia->closeCursor();
-        
-        return $resultado;
         
         
         $this->conexiondb = null;
