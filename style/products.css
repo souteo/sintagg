@@ -109,7 +109,7 @@ input:-webkit-autofill:active {
 .topnav--input{
     border:none;
     padding: 5px;
-    margin-left: -20px;
+    margin-left: -10px;
     margin-right: 5px;
     border-bottom: 2px solid var(--primario);
     background-color: var(--nieve);
@@ -234,8 +234,6 @@ input:-webkit-autofill:active {
         right: 0;
         left: 13em;
     }
-    
-
 }
 
 .maincontainer--menu--title{

@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@100&family=Montserrat:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap');
+
+/* variables */
+
+:root{
+    --nieve: #ebebeb;
+    /*
+    --secundario: rgb(105, 209, 128);
+    */
+    --secundario: rgb(105, 209, 128);
+    --primario: #b05aca;
+    --grisclaro: rgb(185, 185, 185);
+    --grisoscuro: rgb(68, 69, 70);
+    --negro: black;
+}
+
+
+/* todo */
+
+ *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+
+body{
+    background-color: var(--nieve);
+    overflow-y: scroll;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    box-shadow: 0 0 0 30px var(--nieve) inset !important;
+}
+
+/* topnav */
+
+.topnav{
+    overflow-x: auto;
+    overflow-y: hidden;
+    z-index: 1;
+    position: absolute;
+    width:100%;
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    background-color: var(--negro);
+    outline: 2px solid grey;
+}
+
+.topnav--link{
+    padding: 5px 15px;
+    background-color: transparent;
+    margin: 0 20px;
+    text-align: center;
+	color: var(--nieve);
+    max-height: 100%;
+    min-width: max-content;
+    text-decoration:none;
+    font-weight: 300;
+}
+
+.topnav--link:hover{
+    border-top: 2px solid var(--primario);
+    border-left: 2px solid var(--primario);
+    box-shadow: 2px 2px var(--secundario);
+    color: var(--nieve);
+    transition-duration: 0.2s;
+}
+
+.topnav--link:active{
+    border-top: 2px solid var(--primario);
+    border-left: 2px solid var(--primario);
+    box-shadow: -3px -2px var(--secundario);
+    box-shadow: 3px 2px var(--secundario);
+    transition-duration: 0.3s;
+}
+
+
+.home{
+    height: 50px;
+    outline: none;
+    border:none;
+}
+
+.topnav--link[href="#home"]:hover{
+    outline: none;
+    border:none;
+    box-shadow: none;
+}
+
+.topnav--input{
+    border:none;
+    padding: 5px;
+    margin-left: -20px;
+    margin-right: 5px;
+    border-bottom: 2px solid var(--primario);
+    background-color: var(--nieve);
+}
+
+.topnav--input:focus{
+    transition-duration: 0.2s;
+    border:none;
+    outline: none;
+    padding: 5px;
+    border-bottom: 2px solid var(--secundario);
+    background-color: var(--nieve);
+}
+
+#active{
+    color: var(--primario);
+}
+
+/* main */
+
+main{
+    display: grid;
+    grid-template-columns: repeat(minmax(min-content,1fr));
+    column-gap: 70px;
+    align-items: center;
+}
+
+.title{
+    max-width: 100%;
+    display: block;
+}
+
+.sendEmail{
+    grid-column: 1/2;
+    grid-row: 2/3;
+    display: block;
+    align-items: center;
+}
+
+.redes{
+    grid-column: 1/2;
+    grid-row: 3/4;
+    display: block;
+    width: 450px;
+    max-width: 50%;
+    padding: 60px 20px;
+}
+
+.sendEmail--form--container{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+main> h1{
+    padding: 60px 20px 0px;
+}
+
+.sendEmail{
+    padding: 10px 20px;
+    width: 450px;
+    max-width: 50%;
+}
+
+.sendEmail--form--textInput{
+    border:none;
+    padding: 7px;
+    border-bottom: 2px solid var(--primario);
+    background-color: var(--nieve)
+}
+
+.sendEmail--form--textInput:active{
+    transition-duration: 0.2s;
+    border:none;
+    outline: none;
+    padding: 7px;
+    border-bottom: 2px solid var(--secundario);
+    background-color: var(--nieve);
+}
+
+.sendEmail--form--textInput:hover{
+    cursor: text;
+}
+.sendEmail--form--textInput:focus{
+    transition-duration: 0.2s;
+    border:none;
+    outline: none;
+    padding: 7px;
+    border-bottom: 2px solid var(--secundario);
+    background-color: var(--nieve);
+}
+
+
+@media screen and (min-width: 680px){
+    .maincontainer--menu{
+        display: flex;
+    }
+
+    .maincontainer--productscontainer{
+        position: absolute;
+        right: 0;
+        left: 13em;
+    }
+    .redes{
+        grid-column: 2/3;
+        grid-row: 2/3;
+        padding: 0;
+    }
+
+    .title{
+    grid-row: 1/2;
+    }
+}
+
+/* footer */
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    height: 30px;
+    font-size: 12px;
+    width: 100%;
+    color: var(--nieve);
+    background-color: var(--negro);
+    padding: 8px 50px;
+}
