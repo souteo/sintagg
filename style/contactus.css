@@ -48,10 +48,12 @@ input:-webkit-autofill:active {
     overflow-x: auto;
     overflow-y: hidden;
     z-index: 1;
-    position: absolute;
+    list-style-type: none;
+    top:0;
+    left:0;
     width:100%;
     display: flex;
-    height: 50px;
+    height: 7vh;
     justify-content: space-between;
     align-items: center;
     list-style: none;
@@ -123,49 +125,42 @@ input:-webkit-autofill:active {
 }
 
 /* main */
-
-main{
+.maincontainer--title{
+    margin: 4vh 2vh 2vh;
+}
+.maincontainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
     display: grid;
-    grid-template-columns: repeat(minmax(min-content,1fr));
-    column-gap: 70px;
-    align-items: center;
+    min-height: 88vh;
+    grid-template-columns: 90%;
+    align-items: flex-start;
+    margin: 0;
 }
 
-.title{
-    max-width: 100%;
-    display: block;
-}
 
 .sendEmail{
     grid-column: 1/2;
     grid-row: 2/3;
-    display: block;
+    margin: auto;
     align-items: center;
+    width: 90%;
 }
 
 .redes{
     grid-column: 1/2;
     grid-row: 3/4;
     display: block;
-    width: 450px;
-    max-width: 50%;
-    padding: 60px 20px;
+    width: 90%;
+    margin: 2rem auto 1rem;
+    justify-self: right;
 }
 
 .sendEmail--form--container{
     display: flex;
     flex-direction: column;
-    padding: 10px;
-}
-
-main> h1{
-    padding: 60px 20px 0px;
-}
-
-.sendEmail{
-    padding: 10px 20px;
-    width: 450px;
-    max-width: 50%;
+    padding: 3vh;
 }
 
 .sendEmail--form--textInput{
@@ -196,10 +191,59 @@ main> h1{
     background-color: var(--nieve);
 }
 
+.sendEmail--form--submit{
+        background:var(--negro);
+        cursor: pointer;
+        font-size: 1.3rem;
+        text-align: center;
+        width:100%;
+        position: relative;
+        color: var(--nieve);
+        letter-spacing: 1px;
+        padding: 0.5rem;
+        border: none;
+        bottom:0;
+        margin-top: 20px;
+        border-bottom: 2px solid var(--negro);
+        border-left: 1px solid var(--negro);
+        border-top: 1px solid var(--negro);
+        border-right: 3px solid  var(--negro);
+}
+
+
+.sendEmail--form--submit:hover {
+    transition-duration: 0.5s;
+    background-color: var(--primario);
+    color: var(--nieve);
+    transition-duration: 0.3s;
+    border: none;
+    border-bottom: 2px solid var(--negro);
+    border-right: 3px solid  var(--negro);
+}
+
+.sendEmail--form--submit:active{
+    transition-delay: 0s;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid var(--negro);
+    border-left: 1px solid var(--secundario);
+    border-top: 1px solid var(--secundario);
+    border-right: 3px solid  var(--negro);
+    background-color: var(--nieve);
+}
+
+
 
 @media screen and (min-width: 680px){
+    .maincontainer{
+        column-gap: 10%;
+        justify-content: left;
+        grid-template-columns: 45%;
+    }
+
     .maincontainer--menu{
         display: flex;
+        height: 88vh;
     }
 
     .maincontainer--productscontainer{
@@ -213,7 +257,7 @@ main> h1{
         padding: 0;
     }
 
-    .title{
+    .maincontainer--title{
     grid-row: 1/2;
     }
 }
@@ -221,12 +265,11 @@ main> h1{
 /* footer */
 
 .footer{
-    position: fixed;
-    bottom: 0;
-    height: 30px;
+    position: relative;
+    height: 5vh;
     font-size: 12px;
     width: 100%;
     color: var(--nieve);
     background-color: var(--negro);
-    padding: 8px 50px;
+    padding: 8px 5px;
 }

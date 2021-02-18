@@ -28,13 +28,9 @@
 
 
 body{
+    background-image: none;
     background-color: var(--nieve);
-    background-image: url(../assets/images/pata-perro.svg),url(../assets/images/pata-perro2.svg);
-    background-repeat: repeat-y, repeat-y;
-    background-position-y: 280px, 40px;
-    background-position-x: left, right;
-    background-size: 300px,300px;
-    background-attachment: scroll;
+    overflow-y: scroll;
 }
 
 input:-webkit-autofill,
@@ -50,13 +46,12 @@ input:-webkit-autofill:active {
     overflow-x: auto;
     overflow-y: hidden;
     z-index: 1;
-    position: absolute;
     list-style-type: none;
     top:0;
     left:0;
     width:100%;
     display: flex;
-    height: 50px;
+    height: 7vh;
     justify-content: space-between;
     align-items: center;
     list-style: none;
@@ -131,23 +126,25 @@ input:-webkit-autofill:active {
 /* main */
 
 
-.mainform,.mainformfooter{
-    margin: auto;
+.maincontainer{
+    background-color: transparent;
+    width: 100%;
+    height: 88vh;
+    display: flex;
+    justify-content: center;
 }
 
+
 .mainform{
-    position: relative;
-    background-color: transparent;
-    width: 450px;
-    height:320px;
-    margin-top: 8rem;
-    padding-top: 0px;
+    margin: auto;
+    width: 35%;
+    min-width: 300px;
+    height: 70vh;
 }
 
 .mainform > h1{
-    font-size: 30px;
-    margin-top: 0;
-    padding: 15px;
+    font-size: 1.8rem;
+    padding: 1rem;
     text-align: center;
     font-weight: 500;
     letter-spacing: 1px;
@@ -160,10 +157,7 @@ input:-webkit-autofill:active {
 }
 
 .mainform--usuario,.mainform--contraseña{
-    position: relative;
-    right: 0;
-    left: 0;
-    margin: 25px auto;
+    margin: 1.5rem auto;
     max-width: 80%;
 }
 .mainform--recordar{
@@ -172,7 +166,7 @@ input:-webkit-autofill:active {
     left: 0;
     bottom: 0;
     text-align: center;
-    padding: 10px;
+    padding: 1rem;
     background-color: #ebebeb;
     border-bottom: 2px solid var(--negro);
 }
@@ -180,7 +174,7 @@ input:-webkit-autofill:active {
 .mainform--input{
     border-bottom: 2px solid var(--negro);
     width:100%;
-    height: 30px;
+    height: 2rem;
     background-color: var(--nieve);
     border-top: none;
     border-left: none;
@@ -195,15 +189,17 @@ input:-webkit-autofill:active {
     transition-duration: 0.2s;
 }
 
+/*
 .mainform--label{
-    padding-bottom:10px;
+    padding:10px;
     font-size: 20px;
 }
+*/
 
 .mainform--enviar{
     background:var(--negro);
     cursor: pointer;
-    font-size:20px;
+    font-size: 1.3rem;
     text-align: center;
     width:100%;
     position: relative;
@@ -256,11 +252,10 @@ input:-webkit-autofill:active {
 }
 
 .mainformfooter{
-    display: block;
-    padding: 4px 0px;
-    margin: 20px auto 60px;
+    margin-top: 1.2rem;
+    padding: 0.270rem 0;
     text-align: center;
-    width: 400px;
+    width: 100%;
     background-color: var(--secundario);
     border-bottom: 2px solid var(--negro);
     border-right: 3px solid var(--negro);
@@ -279,15 +274,25 @@ input:-webkit-autofill:active {
     background-color: var(--nieve);
 }
 
+@media screen and (min-width: 680px){
+    body{
+        background-color: var(--nieve);
+        background-image: url(../assets/images/pata-perro.svg),url(../assets/images/pata-perro2.svg);
+        background-repeat: repeat-y, repeat-y;
+        background-position-y: 280px, 40px;
+        background-position-x: left, right;
+        background-size: 50vh,50vh;
+        background-attachment: scroll;
+    }
+}
+
 /* footer */
 
 .footer{
-    position: fixed;
+    height: 5vh;
     font-size: 12px;
-    padding: 8px 50px;
-    height: 30px;
     width: 100%;
-    bottom: 0;
     color: var(--nieve);
     background-color: var(--negro);
+    padding: 8px 5px;
 }
