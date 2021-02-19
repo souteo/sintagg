@@ -129,7 +129,7 @@ input:-webkit-autofill:active {
 .maincontainer{
     background-color: transparent;
     width: 100%;
-    height: 88vh;
+    min-height: 88vh;
     display: flex;
     justify-content: center;
 }
@@ -139,7 +139,7 @@ input:-webkit-autofill:active {
     margin: auto;
     width: 35%;
     min-width: 300px;
-    height: 70vh;
+    min-height: 70vh;
 }
 
 .mainform > h1{
@@ -156,10 +156,15 @@ input:-webkit-autofill:active {
     text-shadow: 3px 3px var(--grisoscuro);
 }
 
-.mainform--usuario,.mainform--contraseña{
+.mainform--div,.signUpForm--div{
     margin: 1.5rem auto;
-    max-width: 80%;
+    display: block;
 }
+
+.hidden{
+    display: none;
+}
+
 .mainform--recordar{
     width: 50%;
     position: relative;
@@ -251,24 +256,22 @@ input:-webkit-autofill:active {
     background-color: var(--negro);
 }
 
-.mainformfooter{
-    margin-top: 1.2rem;
+
+.mainformfooter--btn{
+    margin: 1.2rem 0;
     padding: 0.270rem 0;
     text-align: center;
     width: 100%;
     background-color: var(--secundario);
     border-bottom: 2px solid var(--negro);
     border-right: 3px solid var(--negro);
-}
-
-.mainformfooter--link{
     text-decoration: none;
     display: inline-block;
     width: 100%;
     color: var(--negro);
 }
 
-.mainformfooter:hover {
+.mainformfooter--btn:hover {
     color: var(--negro);
     transition-duration: 0.5s;
     background-color: var(--nieve);

@@ -54,32 +54,39 @@ if (isset($_COOKIE["usuario"])) {
     
     <main>
         <div class="maincontainer"> 
-            <form class="mainform" action="../controller/ValidacionLogin.php" method="post">
-        
-                <h1>INICIAR SESION</h1>
-                <div class="mainform--usuario">
-                    <!--<label for="user" class="mainform--label">Usuario:</label> <br>-->
-                    <input required placeholder="Usuario" class="mainform--input" type="text" id="user" name="user">
+            <form id="mainform" class="mainform" action="../controller/ValidacionLogin.php" method="post">
+                <h1 id="titulo">INICIAR SESION</h1>
+                <div class="mainform--nombre mainform--div hidden" id="nombre">
+                    <input placeholder="Nombre" class="mainform--input" type="text" name="nombre" id="nombreInput">
+                </div>
+
+                <div class="mainform--apellido mainform--div hidden" id="apellido">
+                    <input  placeholder="Apellido" class="mainform--input" type="text"  name="apellido" id="apellidoInput">
+                </div>
+                
+                <div class="mainform--email mainform--div" id="email" >
+                    <input required placeholder="E-mail" class="mainform--input" type="email" name="email">
                 </div>
             
-                <div class="mainform--contraseña">
+                <div class="mainform--contraseña mainform--div" id="pw">
                     <!--<label for="pw" class="mainform--label">Contraseña:</label> <br>-->
-                    <input required placeholder="Contraseña" class="mainform--input" type="password" id="pw" name="pw">
+                    <input required placeholder="Contraseña" class="mainform--input" type="password" name="pw">
+                </div>
+
+                <div class="mainform--fecha_nac mainform--div hidden" id="fecha_nac" >
+                    <input placeholder="Tu fecha de nacimiento" class="mainform--input" type="date" name="fecha_nac" id="fecha_nacInput">
                 </div>
             
-                <div class="mainform--recordar">
+                <div class="mainform--recordar" id="recordar">
                     <label for="recordar" class="recordar--label">Recordar contraseña
-                        <input class="recordar--checkbox" type="checkbox" id="recordar" name="recordar">
+                        <input class="recordar--checkbox" type="checkbox" name="recordar">
                     </label>
                 </div>
                 
-                <button type="submit" class="mainform--enviar" type="submit" id="boton" >Iniciar sesión</button>
+                <button id="submit" type="submit" class="mainform--enviar" type="submit" id="boton" >Iniciar sesión</button>
             
-                <div class="mainformfooter">
-                    <a href="formRegistro.php" class="mainformfooter--link">No tengo una cuenta</a>
-                </div>
+                <button class="mainformfooter--btn" id="signUp">No tengo una cuenta</button>
             </form>
-            
         </div>
     </main>
     <footer>
@@ -87,7 +94,7 @@ if (isset($_COOKIE["usuario"])) {
             Teo Alejandro Costa Pires ~ SIN TAGG
         </div>
     </footer>
-    
+    <script src="../js/Login.js"></script>
 </body>
 
 </html>
