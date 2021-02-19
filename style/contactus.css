@@ -6,7 +6,7 @@
 /* variables */
 
 :root {
-  --nieve: #ebebeb;
+  --nieve: white;
   /*
     --secundario: rgb(105, 209, 128);
     */
@@ -140,7 +140,6 @@ input:-webkit-autofill:active {
 
 .maincontainer {
   width: 100%;
-  display: flex;
   justify-items: center;
   display: grid;
   min-height: 88vh;
