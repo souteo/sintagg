@@ -65,7 +65,7 @@ if (isset($_COOKIE["usuario"])) {
                 </div>
                 
                 <div class="mainform--email mainform--div" id="email" >
-                    <input required placeholder="E-mail" class="mainform--input" type="email" name="email">
+                    <input required placeholder="E-mail" class="mainform--input" type="text" name="user">
                 </div>
             
                 <div class="mainform--contraseña mainform--div" id="pw">

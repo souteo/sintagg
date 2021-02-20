@@ -1,5 +1,5 @@
 <?php
-require 'Conexion.php';
+require '../connection/Conexion.php';
 
 try {
     
@@ -9,26 +9,20 @@ try {
     
     $user=$_POST["user"];
     
-    $pass=$_POST["pass"];
+    $pass=$_POST["pw"];
     $pass_encriptada = password_hash($pass, PASSWORD_DEFAULT, array("cost"=>13));
+    $mail=$_POST["user"];
+    $fecha_nac=$_POST["fecha_nac"];
     
-    $mail=$_POST["mail"];
-    
-    $num=$_POST["num"];
-    
-    if (!isset($num)) {
-        $num = NULL;
-    }
-    
-    $sql= "INSERT INTO `usuarios`(`nombre_usuario`, `contraseña_usuario`, `mail_usuario`, `numero_usuario`) VALUES (:user, :pass, :mail, :num)";
+    $sql= "INSERT INTO `usuarios`(`nombre_usuario`, `contraseña_usuario`, `mail_usuario`, `fechaNac_usuario`) VALUES (:user, :pass, :mail, :fecha_nac)";
     
     $resultado= $conexion->prepare($sql);
     
-    $resultado->execute(array(":user"=>$user, ":pass"=>$pass_encriptada, "mail"=>$mail, ":num"=>$num));
+    $resultado->execute(array(":user"=>$user, ":pass"=>$pass_encriptada, "mail"=>$mail, ":fecha_nac"=>$fecha_nac));
     
     $resultado->closeCursor();
     
-    header("location: index.php");
+    header("location: ../index.php");
     
     
 } catch (Exception $e) {

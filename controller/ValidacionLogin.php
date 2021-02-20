@@ -26,7 +26,11 @@ try {
                 setcookie("usuario", $_POST["user"], time()+86400);
             }
             header("location: ../views/Products.php");
-        };
+        }
+        else
+        {
+            header("location: ../views/Login.php");
+        }
     }
 } catch (Exception $e) {
     die("Error:" . $e->getMessage());

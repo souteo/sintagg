@@ -45,6 +45,7 @@ input:-webkit-autofill:active {
 
 .topnav {
   overflow-x: auto;
+  overflow-y: hidden;
   z-index: 1;
   list-style-type: none;
   width: 100;
