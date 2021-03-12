@@ -7,7 +7,6 @@ let products = ["a","b","c","d"];
 
 const fragment = document.createDocumentFragment();
 
-	console.log("boton tocado");
 	
 for (const color of colors) {
     let link = document.createElement("a");
@@ -18,26 +17,23 @@ for (const color of colors) {
     fragment.appendChild(link);
 }
 
-let boton = document.getElementById("boton");
+let boton = document.getElementById("boton")
 
-boton.addEventListener('click', () =>{
-	console.log("boton tocado");
-});
 const getData = () =>{
-    let xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest()
 
-    xhr.open('GET', '../controller/ProductsListController.php?page=1');
+    xhr.open('GET', '../controller/ProductsListController.php?page=1')
 
     xhr.addEventListener('load', (data)=>{
-        const dataJSON = parseJSON(data.target.response);
+        const dataJSON = JSON.parse(data.target.response)
 
-        console.log(dataJSON);
-    });
+        console.log(dataJSON)
+    })
 
-    xhr.send();
+    xhr.send()
 }
 
-window.addEventListener('load', getData());
+window.addEventListener('load', getData())
 
 /*
 for (const product of products){

@@ -50,7 +50,7 @@ class GetShirt extends Conexion{
   
         $sentencia = $this->conexiondb->prepare($sql);
         
-        $sentencia->execute();;
+        $sentencia->execute();
         
         return $sentencia;
         

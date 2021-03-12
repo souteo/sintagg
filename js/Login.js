@@ -11,6 +11,8 @@ const apellidoInput = document.getElementById('apellidoInput');
 const nombreInput = document.getElementById('nombreInput');
 const fecha_nacInput = document.getElementById('fecha_nacInput');
 
+console.log("log");
+
 //cambiar del formulario de login al formulario de sign up
 button.addEventListener("click", () => {
     fechan.classList.toggle('hidden');
