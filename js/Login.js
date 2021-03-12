@@ -18,16 +18,16 @@ button.addEventListener("click", () => {
     apellido.classList.toggle('hidden');
     recordar.classList.toggle('hidden');
     if(!apellido.classList.contains('hidden')){
-        titulo.innerHTML="REGISTRARSE";
-        submit.innerHTML="Crear cuenta";
+        titulo.textContent="REGISTRARSE";
+        submit.textContent="Crear cuenta";
         mainform.setAttribute('action', '../controller/ValidacionRegistro.php')
         fecha_nacInput.setAttribute('required','true');
         nombreInput.setAttribute('required','true');
         apellidoInput.setAttribute('required','true');
     }
     else{
-    titulo.innerHTML="INICIAR SESIÓN";
-    submit.innerHTML="Iniciar sesion";
+    titulo.textContent="INICIAR SESIÓN";
+    submit.textContent="Iniciar sesion";
     mainform.setAttribute('action', '../controller/ValidacionLogin.php')
     fecha_nacInput.removeAttribute("required");
     nombreInput.removeAttribute("required");
