@@ -7,6 +7,8 @@ let products = ["a","b","c","d"];
 
 const fragment = document.createDocumentFragment();
 
+	console.log("boton tocado");
+	
 for (const color of colors) {
     let link = document.createElement("a");
     link.textContent= color.charAt(0).toUpperCase();
@@ -16,10 +18,15 @@ for (const color of colors) {
     fragment.appendChild(link);
 }
 
+let boton = document.getElementById("boton");
+
+boton.addEventListener('click', () =>{
+	console.log("boton tocado");
+});
 const getData = () =>{
     let xhr = new XMLHttpRequest();
 
-    xhr.open('GET', '../controller/GetShirt.php');
+    xhr.open('GET', '../controller/ProductsListController.php?page=1');
 
     xhr.addEventListener('load', (data)=>{
         const dataJSON = parseJSON(data.target.response);
@@ -30,7 +37,7 @@ const getData = () =>{
     xhr.send();
 }
 
-addEventListener('load', getData());
+window.addEventListener('load', getData());
 
 /*
 for (const product of products){

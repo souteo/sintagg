@@ -1,8 +1,8 @@
 eclipse.preferences.version=1
-encoding//controller/GetShirt.php=UTF-8
 encoding//controller/Topnav.php=UTF-8
 encoding//controller/ValidacionLogin.php=UTF-8
 encoding//controller/ValidacionRegistro.php=UTF-8
+encoding//model/GetShirt.php=UTF-8
 encoding//views/Account.php=UTF-8
 encoding//views/UsuarioAlta.php=UTF-8
 encoding/index-es.php=UTF-8

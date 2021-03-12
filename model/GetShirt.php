@@ -1,3 +1,4 @@
+<?php
 require '../connection/Conexion.php';
 
 class GetShirt extends Conexion{

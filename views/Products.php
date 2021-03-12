@@ -70,21 +70,9 @@
             <div class="maincontainer--productscontainer">
                 <h1 class="maincontainer--productscontainer--title">Productos</h1>
                 <div class="maincontainer--productslist">
-                    <?php
-                    require '../controller/GetShirt.php';
-                    $remeras = new GetShirt();
-                    $resultado = $remeras->getTodasLasRemeras();
-                    while($registro=$resultado->fetch(PDO::FETCH_ASSOC)){
-                        
-                        echo '<a href="" class="maincontainer--productslist--product">';
-                        echo '<img src="../assets/images/vterminada.png" alt="">';
-                        echo '<span class="maincontainer--productscontainer--producttitle">' . $registro['DISEÑO'] . '</span>';
-                        echo '<span class="maincontainer--productscontainer--productdescription">' . $registro['PRECIO'] . '<br> 2 combinaciones de colores</span>';
-                        echo '</a>';
-                    }
-                    ?>;
+                    
                 </div>
-        
+        	<button id="boton">Toca el boton</button>
             </div>
         </div>
     </main>
