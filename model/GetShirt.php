@@ -40,7 +40,6 @@ class GetShirt extends Conexion{
         
         return $resultado;
         
-        
         $this->conexiondb = null;
     }
 
