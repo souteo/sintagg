@@ -34,11 +34,7 @@
 
 <body>
     <header>
-        <ul class="topnav">
-        <?php require '../controller/Topnav.php'; 
-            $file = "productos";
-            getTopnav($file);
-        ?>
+        <ul class="topnav" id = "topnav--container">
         </ul>
 
     </header>
@@ -54,21 +50,15 @@
                 <div class="maincontainer--menu--filter" id="color--filter">
                     <h2 class="maincontainer--menu--filter--title">Colores</h2>
                 </div>
-                <div class="maincontainer--menu--filter">
-                    <h2 class="maincontainer--menu--filter--title">Talle</h2>
+                <div class="maincontainer--menu--filter" id="size--filter">
+                    <h2 class="maincontainer--menu--filter--title">Talles</h2>
                 </div>
-                <div class="maincontainer--menu--filter">
-                    <h2 class="maincontainer--menu--filter--title">Stock</h2>
-                </div>
-                <div class="maincontainer--menu--filter">
-                    <h2 class="maincontainer--menu--filter--title">Prenda</h2>
-                </div>
-                <div class="maincontainer--menu--filter">
+                <div class="maincontainer--menu--filter" id="design--filter">
                     <h2 class="maincontainer--menu--filter--title">Diseño</h2>
                 </div>
             </div>
             <div class="maincontainer--productscontainer">
-                <h1 class="maincontainer--productscontainer--title">Productos</h1>
+                <h1 class="maincontainer--productscontainer--title">PRODUCTOS</h1>
                 <div class="maincontainer--productslist" id="productslist">
                     
                 </div>
@@ -78,7 +68,8 @@
     <footer class="footer">
         Teo Alejandro Costa Pires ~ SIN TAGG
     </footer>
-    <script src="../js/Products.js"></script>
+    <script src="../js/Products.js" type="module"></script>
+    <script src="../js/PageModel.js" type="module"></script>
 </body>
 
 </html>

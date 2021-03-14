@@ -7,8 +7,36 @@ class GetFilter extends Conexion{
     }
     
     
-    public function getTodosLosColores(){
+    public function getColores(){
         $sql= "SELECT id_color AS ID, nombre_color AS NOMBRE FROM colores";
+        $sentencia = $this->conexiondb->prepare($sql);
+        
+        $sentencia->execute();
+        
+        return $sentencia;
+        
+        $sentencia->closeCursor();
+        
+        
+        $this->conexiondb = null;
+    }
+    
+    public function getSizes(){
+        $sql= "SELECT id_talles AS ID, nombre_talles AS NOMBRE FROM talles";
+        $sentencia = $this->conexiondb->prepare($sql);
+        
+        $sentencia->execute();
+        
+        return $sentencia;
+        
+        $sentencia->closeCursor();
+        
+        
+        $this->conexiondb = null;
+    }
+    
+    public function getDesigns(){
+        $sql= "SELECT id_diseño AS ID, nombre_diseño AS NOMBRE FROM diseños";
         $sentencia = $this->conexiondb->prepare($sql);
         
         $sentencia->execute();

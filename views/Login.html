@@ -43,18 +43,14 @@ if (isset($_COOKIE["usuario"])) {
 
 <body>
     <header>
-        <ul class="topnav">
-        <?php require '../controller/Topnav.php'; 
-            $file = "productos";
-            getTopnav($file);
-        ?>
+        <ul class="topnav" id="topnav--container">
         </ul>
 
     </header>
     
     <main>
         <div class="maincontainer"> 
-            <form id="mainform" class="mainform" action="../controller/ValidacionLogin.php" method="post">
+            <form id="mainform" class="mainform" action="../controller/LoginValidation.php" method="post">
                 <h1 id="titulo">INICIAR SESION</h1>
                 <div class="mainform--nombre mainform--div hidden" id="nombre">
                     <input placeholder="Nombre" class="mainform--input" type="text" name="nombre" id="nombreInput">
@@ -94,7 +90,8 @@ if (isset($_COOKIE["usuario"])) {
             Teo Alejandro Costa Pires ~ SIN TAGG
         </div>
     </footer>
-    <script src="../js/Login.js"></script>
+    <script src="../js/Login.js" type="module"></script>
+    <script src="../js/PageModel.js" type="module"></script>
 </body>
 
 </html>

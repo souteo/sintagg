@@ -1,6 +1,6 @@
 <?php 
 
-header("location: views/Products.php");
+header("location: views/Products.html");
 
 
 

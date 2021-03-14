@@ -32,19 +32,22 @@
 
 <body>
     <header>
-        <ul class="topnav">
-        <?php require '../controller/Topnav.php'; 
-            $file = "cuenta";
-            getTopnav($file);
-        ?>
+        <ul class="topnav" id = "topnav--container">
         </ul>
-
     </header>
+    
     <main>
+    <div class="maincontainer">
+    </div>
     </main>
-    <footer class="footer">
-        Teo Alejandro Costa Pires ~ SIN TAGG
+    
+    <footer>
+        <div class="footer">
+            Teo Alejandro Costa Pires ~ SIN TAGG
+        </div>
     </footer>
+    <script src="../js/Account.js" type="module"></script>
+    <script src="../js/PageModel.js" type="module"></script>
 </body>
 
 </html>

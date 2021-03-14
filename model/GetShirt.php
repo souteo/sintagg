@@ -45,7 +45,7 @@ class GetShirt extends Conexion{
 
     public function getTodasLasRemeras(){
         
-        $sql= "SELECT remera.id_remera AS REMERA, remera.precio_remera AS PRECIO, diseños.nombre_diseño AS DISEÑO, diseños.descripción_diseño AS DESCRIPCIÓN FROM remera JOIN diseños ON remera.diseño_remera = diseños.id_diseño;";
+        $sql= "SELECT remeras.id_remera AS REMERA, remeras.precio_remera AS PRECIO, diseños.nombre_diseño AS DISEÑO, diseños.descripción_diseño AS DESCRIPCIÓN FROM remeras JOIN diseños ON remeras.diseño_remera = diseños.id_diseño;";
   
         $sentencia = $this->conexiondb->prepare($sql);
         

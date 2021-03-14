@@ -1,11 +1,25 @@
 <?php
 require '../model/GetFilter.php';
-$colores = new GetFilter();
+$filtros = new GetFilter();
 
 $page = $_GET["page"];
-if ($page=="getAll") {
-    $resultado = $colores->getTodosLosColores()->fetchAll(PDO::FETCH_ASSOC);
-    
-    echo json_encode($resultado)
-    ;
+switch($page){
+    case "getColors":
+        $resultado = $filtros->getColores()->fetchAll(PDO::FETCH_ASSOC);
+        
+        echo json_encode($resultado)
+        ;
+        break;
+    case "getSizes":
+        $resultado = $filtros->getSizes()->fetchAll(PDO::FETCH_ASSOC);
+        
+        echo json_encode($resultado)
+        ;
+        break;
+    case "getDesigns":
+        $resultado = $filtros->getDesigns()->fetchAll(PDO::FETCH_ASSOC);
+        
+        echo json_encode($resultado)
+        ;
+        break;
 }

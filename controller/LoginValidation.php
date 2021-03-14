@@ -25,11 +25,11 @@ try {
             if (isset($_POST["recordar"])) {
                 setcookie("usuario", $_POST["user"], time()+86400);
             }
-            header("location: ../views/Products.php");
+            header("location: ../index.php");
         }
         else
         {
-            header("location: ../views/Login.php");
+            header("location: ../views/Login.html");
         }
     }
 } catch (Exception $e) {

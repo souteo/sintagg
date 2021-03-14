@@ -1,3 +1,7 @@
+import { getTopnav } from './PageModel.js';
+
+getTopnav();
+
 const button = document.getElementById('signUp');
 const fechan = document.getElementById('fecha_nac');
 const nombre = document.getElementById('nombre');
@@ -11,7 +15,6 @@ const apellidoInput = document.getElementById('apellidoInput');
 const nombreInput = document.getElementById('nombreInput');
 const fecha_nacInput = document.getElementById('fecha_nacInput');
 
-console.log("log");
 
 //cambiar del formulario de login al formulario de sign up
 button.addEventListener("click", () => {
@@ -22,7 +25,7 @@ button.addEventListener("click", () => {
     if(!apellido.classList.contains('hidden')){
         titulo.textContent="REGISTRARSE";
         submit.textContent="Crear cuenta";
-        mainform.setAttribute('action', '../controller/ValidacionRegistro.php')
+        mainform.setAttribute('action', '../controller/SignUpValidation.php')
         fecha_nacInput.setAttribute('required','true');
         nombreInput.setAttribute('required','true');
         apellidoInput.setAttribute('required','true');
