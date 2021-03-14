@@ -1,5 +1,4 @@
 <?php
-
 require '../connection/Conexion.php';
 
 try {
