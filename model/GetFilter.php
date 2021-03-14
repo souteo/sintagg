@@ -1,7 +1,7 @@
 <?php
-require '../connection/Conexion.php';
+require '../connection/Connection.php';
 
-class GetFilter extends Conexion{
+class GetFilter extends Connection{
     public function GetFilter(){
         parent::__construct();
     }

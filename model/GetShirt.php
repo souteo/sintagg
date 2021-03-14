@@ -1,7 +1,7 @@
 <?php
-require '../connection/Conexion.php';
+require '../connection/Connection.php';
 
-class GetShirt extends Conexion{
+class GetShirt extends Connection{
     public function GetShirt(){
         parent::__construct();
     }

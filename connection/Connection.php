@@ -1,7 +1,7 @@
 <?php
 require 'DBConfig.php';
 
-class Conexion{
+class Connection{
 protected $conexiondb;
 
 /* conectar con mysqli
@@ -17,7 +17,7 @@ public function Conexion(){
 */
 
 
-public function Conexion(){
+public function Connection(){
     try {
         $this->conexiondb = new PDO('mysql:dbname=sintagg;host=localhost', 'root', '123456');
         
