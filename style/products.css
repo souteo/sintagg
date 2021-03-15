@@ -233,6 +233,12 @@ input:-webkit-autofill:active {
   grid-template-columns: 100% repeat(min-content);
 }
 
+.maincontainer--menu--filter--sortByPriceBtn{
+	border: none;
+	background: none;
+	margin: 10px;
+}
+
 .maincontainer--menu--filter--link {
     display:inline;
     margin: 0.2rem 0;
