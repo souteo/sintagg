@@ -185,5 +185,10 @@ const sortProductListByPrice = () => {
 const button = document.getElementById("sortByPrice");
 
 button.addEventListener('click', () => {
+	const container = document.getElementById("productslist");
+	
+	if(container){
 	sortProductListByPrice()
+	}
+	
 });
