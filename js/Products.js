@@ -86,6 +86,7 @@ const getProductos = () => {
 }
 getProductos();
 
+//Obteniendo la lista de talles
 const getSizesList = () => {
 	let xhr = new XMLHttpRequest();
 
@@ -114,6 +115,7 @@ const getSizesList = () => {
 }
 getSizesList();
 
+//Obteniendo la lista de diseños
 const getDesignsList = () => {
 	let xhr = new XMLHttpRequest();
 
@@ -141,25 +143,7 @@ const getDesignsList = () => {
 }
 getDesignsList();
 
-/*
-let boton = document.getElementById("sortByPrice");
-
-boton.addEventListener('click', ()=>{
-	
-const container = document.getElementById("productslist");
-
-let x = [...container.children];
-
-for(let i in x){
-	console.log(x[i].lastElementChild.innerText.slice(1));
-}
-
-}) */
-
-
-
-
-
+//Ordenando los productos por precio de menor a mayor
 const sortProductListByPrice = () => {
 
 	const container = document.getElementById("productslist");
