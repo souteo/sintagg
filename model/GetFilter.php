@@ -22,7 +22,7 @@ class GetFilter extends Connection{
     }
     
     public function getSizes(){
-        $sql= "SELECT id_talles AS ID, nombre_talles AS NOMBRE FROM talles";
+        $sql= "SELECT id_talles AS ID, nombre_talles AS NOMBRE FROM talles ORDER BY id_talles";
         $sentencia = $this->conexiondb->prepare($sql);
         
         $sentencia->execute();

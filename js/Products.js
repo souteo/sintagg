@@ -2,6 +2,7 @@ import { getTopnav } from './PageModel.js';
 
 getTopnav();
 
+
 //Obtener la lista de filtros por color
 const getColorsList = () => {
 
@@ -11,8 +12,7 @@ const getColorsList = () => {
 
 	xhr.addEventListener('load', (data) => {
 		const dataJSON = JSON.parse(data.target.response);
-
-
+		
 		const color_filter = document.getElementById("color--filter");
 		const fragment = document.createDocumentFragment();
 
@@ -21,7 +21,8 @@ const getColorsList = () => {
 			let link = document.createElement("a");
 			link.textContent = color.NOMBRE.charAt(0).toUpperCase();
 			link.textContent += color.NOMBRE.slice(1);
-			link.classList.add("maincontainer--menu--filter--link");
+			link.classList.add("maincontainer--menu--filter--byColor");
+			link.setAttribute("id", color.NOMBRE);
 			link.href = "#";
 			fragment.appendChild(link);
 		}
@@ -35,12 +36,15 @@ getColorsList();
 
 
 //Obtener los productos de la base de datos
-const getProductos = () => {
+const getProductos = (filter, value) => {
 	let xhr = new XMLHttpRequest()
-
-	xhr.open('GET', '../controller/ProductsListController.php?page=getAll')
+	
+	xhr.open('GET', `../controller/ProductsListController.php?filter=${filter}&value=${value}`)
 
 	xhr.addEventListener('load', (data) => {
+		
+		console.log(data.target.response);
+		
 		const dataJSON = JSON.parse(data.target.response)
 
 
@@ -78,13 +82,36 @@ const getProductos = () => {
 
 			fragment.appendChild(p);
 		};
-		productsList.appendChild(fragment);
+		if (!productsList.hasChildNodes()) {
+			productsList.appendChild(fragment);
+		}
+		else {
+			const nuevoPList = document.createElement("div");
+
+			nuevoPList.classList.add(productsList.className);
+
+			nuevoPList.setAttribute('id', productsList.id);
+
+			nuevoPList.appendChild(fragment);
+
+			productsList.replaceWith(nuevoPList);
+		}
 
 	})
 
 	xhr.send()
 }
-getProductos();
+
+getProductos("getAll");
+
+const menu = document.getElementById("maincontainer--menu");
+
+menu.addEventListener('click', (e) => {
+	if (e.target.nodeName == "A") {
+		getProductos(e.target.className, e.target.id);
+	}
+});
+
 
 //Obteniendo la lista de talles
 const getSizesList = () => {
@@ -104,7 +131,8 @@ const getSizesList = () => {
 			let link = document.createElement("a");
 			link.textContent = size.NOMBRE.charAt(0).toUpperCase();
 			link.textContent += size.NOMBRE.slice(1);
-			link.classList.add("maincontainer--menu--filter--link");
+			link.classList.add("maincontainer--menu--filter--bySize");
+			link.setAttribute('id', size.NOMBRE);
 			link.href = "#";
 			fragment.appendChild(link);
 		}
@@ -114,6 +142,7 @@ const getSizesList = () => {
 	xhr.send();
 }
 getSizesList();
+
 
 //Obteniendo la lista de diseños
 const getDesignsList = () => {
@@ -143,6 +172,8 @@ const getDesignsList = () => {
 }
 getDesignsList();
 
+
+/*
 //Ordenando los productos por precio de menor a mayor
 const sortProductListByPrice = () => {
 
@@ -182,13 +213,14 @@ const sortProductListByPrice = () => {
 
 }
 
-const button = document.getElementById("sortByPrice");
 
+const button = document.getElementById("sortByPrice");
 button.addEventListener('click', () => {
 	const container = document.getElementById("productslist");
-	
-	if(container){
-	sortProductListByPrice()
+
+	if (container) {
+		sortProductListByPrice()
 	}
-	
+
 });
+*/

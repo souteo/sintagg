@@ -233,13 +233,9 @@ input:-webkit-autofill:active {
   grid-template-columns: 100% repeat(min-content);
 }
 
-.maincontainer--menu--filter--sortByPriceBtn{
-	border: none;
-	background: none;
-	margin: 10px;
-}
 
-.maincontainer--menu--filter--link {
+
+[class^='maincontainer--menu--filter--'] {
     display:inline;
     margin: 0.2rem 0;
   color: inherit;
@@ -259,6 +255,22 @@ input:-webkit-autofill:active {
   font-size: 1.3rem;
   text-decoration: none;
   color: var(--nieve);
+}
+
+
+.maincontainer--menu--filter--subtitle{
+  padding-bottom: 0.2rem;
+  font-weight: 300;
+  font-size: 1rem;
+  text-decoration: none;
+  color: var(--nieve);
+	
+}
+
+.maincontainer--menu--filter--sortByPrice{
+	text-decoration: none;
+	font-weight: normal;
+	margin: 10px;
 }
 
 /* footer */
