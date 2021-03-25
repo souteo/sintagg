@@ -1,5 +1,5 @@
 <?php
-require '../model/GetFilter.php';
+require '../api/GetFilter.php';
 $filtros = new GetFilter();
 
 $page = $_GET["page"];

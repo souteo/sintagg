@@ -12,7 +12,7 @@ class GetShirt extends Connection
     //Obtener todas las remeras de la base de datos
     public function getTodasLasRemeras()
     {
-        $sql = "SELECT remeras.id_remera AS REMERA, remeras.precio_remera AS PRECIO, diseños.nombre_diseño AS DISEÑO, diseños.descripción_diseño AS DESCRIPCIÓN FROM remeras JOIN diseños ON remeras.diseño_remera = diseños.id_diseño ;";
+        $sql = "SELECT remeras.id_remera AS REMERA, talles.nombre_talles AS TALLE , remeras.precio_remera AS PRECIO, diseños.nombre_diseño AS DISEÑO, diseños.descripción_diseño AS DESCRIPCIÓN FROM remeras JOIN diseños ON remeras.diseño_remera = diseños.id_diseño JOIN talles ON remeras.talle_remera = talles.id_talles;";
         
         $sentencia = $this->conexiondb->prepare($sql);
         
@@ -69,11 +69,9 @@ class GetShirt extends Connection
     
     //Obtener todas las remeras de la base de datos ordenadas por precio
     public function getTodasLasRemerasPorPrecio($menorAMayor){
-        if ($menorAMayor) {
-            $sql = "SELECT remeras.id_remera AS REMERA, remeras.precio_remera AS PRECIO, diseños.nombre_diseño AS DISEÑO, diseños.descripción_diseño AS DESCRIPCIÓN FROM remeras JOIN diseños ON remeras.diseño_remera = diseños.id_diseño ORDER BY remeras.precio_remera;";
-        } else {
-            $sql = "SELECT remeras.id_remera AS REMERA, remeras.precio_remera AS PRECIO, diseños.nombre_diseño AS DISEÑO, diseños.descripción_diseño AS DESCRIPCIÓN FROM remeras JOIN diseños ON remeras.diseño_remera = diseños.id_diseño ORDER BY remeras.precio_remera DESC;";
-        }
+        if ($menorAMayor) $sql = "SELECT remeras.id_remera AS REMERA, remeras.precio_remera AS PRECIO, diseños.nombre_diseño AS DISEÑO, diseños.descripción_diseño AS DESCRIPCIÓN FROM remeras JOIN diseños ON remeras.diseño_remera = diseños.id_diseño ORDER BY remeras.precio_remera;";
+        else $sql = "SELECT remeras.id_remera AS REMERA, remeras.precio_remera AS PRECIO, diseños.nombre_diseño AS DISEÑO, diseños.descripción_diseño AS DESCRIPCIÓN FROM remeras JOIN diseños ON remeras.diseño_remera = diseños.id_diseño ORDER BY remeras.precio_remera DESC;";
+
 
         $sentencia = $this->conexiondb->prepare($sql);
 

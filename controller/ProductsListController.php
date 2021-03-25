@@ -1,5 +1,5 @@
 <?php
-require '../model/GetShirt.php';
+require '../api/GetShirt.php';
 $remeras = new GetShirt();
 
 $filter = $_GET["filter"];

@@ -257,6 +257,14 @@ input:-webkit-autofill:active {
   color: var(--nieve);
 }
 
+.restart--filters{
+	cursor: pointer;
+}
+
+.hidden{
+	display:none;
+}
+
 
 .maincontainer--menu--filter--subtitle{
   padding-bottom: 0.2rem;
