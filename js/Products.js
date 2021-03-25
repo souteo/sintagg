@@ -2,56 +2,49 @@ import { getTopnav } from './PageModel.js';
 
 getTopnav();
 
+const menu = document.getElementById("maincontainer--menu");
 
 //Obtener la lista de filtros por color
 const getColorsList = () => {
 
-	let xhr = new XMLHttpRequest();
+	fetch('../controller/ProductsMenuController.php?page=getColors')
+		.then(res => res.ok ? Promise.resolve(res) : Promise.reject(res))
+		.then(res => res.json())
+		.then(res => {
 
-	xhr.open('GET', '../controller/ProductsMenuController.php?page=getColors')
-
-	xhr.addEventListener('load', (data) => {
-		const dataJSON = JSON.parse(data.target.response);
-		
-		const color_filter = document.getElementById("color--filter");
-		const fragment = document.createDocumentFragment();
+			const color_filter = document.getElementById("color--filter");
+			const fragment = document.createDocumentFragment();
 
 
-		for (const color of dataJSON) {
-			let link = document.createElement("a");
-			link.textContent = color.NOMBRE.charAt(0).toUpperCase();
-			link.textContent += color.NOMBRE.slice(1);
-			link.classList.add("maincontainer--menu--filter--byColor");
-			link.setAttribute("id", color.NOMBRE);
-			link.href = "#";
-			fragment.appendChild(link);
+			for (const color of res) {
+				let link = document.createElement("a");
+				link.textContent = color.NOMBRE.charAt(0).toUpperCase();
+				link.textContent += color.NOMBRE.slice(1);
+				link.classList.add("maincontainer--menu--filter--byColor");
+				link.setAttribute("id", color.NOMBRE);
+				link.href = "#";
+				fragment.appendChild(link);
+			}
+			color_filter.appendChild(fragment);
 		}
-		color_filter.appendChild(fragment);
-
-	});
-
-	xhr.send();
+		)
 }
 getColorsList();
 
 
 //Obtener los productos de la base de datos
 const getProductos = (filter, value) => {
-	let xhr = new XMLHttpRequest()
-	
-	xhr.open('GET', `../controller/ProductsListController.php?filter=${filter}&value=${value}`)
 
-	xhr.addEventListener('load', (data) => {
-		
-		console.log(data.target.response);
-		
-		const dataJSON = JSON.parse(data.target.response)
+	fetch(`../controller/ProductsListController.php?filter=${filter}&value=${value}`)
+	.then(res => res.ok ? Promise.resolve(res) : Promise.reject(res))
+	.then(res => res.json())
+	.then(res => {
 
 
 		const productsList = document.getElementById("productslist");
 		const fragment = document.createDocumentFragment();
 
-		for (const product of dataJSON) {
+		for (const product of res) {
 			let p = document.createElement("a");
 			p.classList.add("maincontainer--productslist--product")
 
@@ -98,14 +91,10 @@ const getProductos = (filter, value) => {
 		}
 
 	})
-
-	xhr.send()
 }
-
 getProductos("getAll");
 
-const menu = document.getElementById("maincontainer--menu");
-
+//Escuchando los filtros
 menu.addEventListener('click', (e) => {
 	if (e.target.nodeName == "A") {
 		getProductos(e.target.className, e.target.id);
@@ -115,19 +104,17 @@ menu.addEventListener('click', (e) => {
 
 //Obteniendo la lista de talles
 const getSizesList = () => {
-	let xhr = new XMLHttpRequest();
 
-	xhr.open('GET', '../controller/ProductsMenuController.php?page=getSizes')
-
-	xhr.addEventListener('load', (data) => {
-		const dataJSON = JSON.parse(data.target.response);
-
+	fetch('../controller/ProductsMenuController.php?page=getSizes')
+	.then(res => res.ok ? Promise.resolve(res) : Promise.reject(res))
+	.then(res => res.json())
+	.then(res => {
 
 		const color_filter = document.getElementById("size--filter");
 		const fragment = document.createDocumentFragment();
 
 
-		for (const size of dataJSON) {
+		for (const size of res) {
 			let link = document.createElement("a");
 			link.textContent = size.NOMBRE.charAt(0).toUpperCase();
 			link.textContent += size.NOMBRE.slice(1);
@@ -138,26 +125,23 @@ const getSizesList = () => {
 		}
 		color_filter.appendChild(fragment);
 	});
-
-	xhr.send();
 }
 getSizesList();
 
 
 //Obteniendo la lista de diseños
 const getDesignsList = () => {
-	let xhr = new XMLHttpRequest();
 
-	xhr.open('GET', '../controller/ProductsMenuController.php?page=getDesigns')
-
-	xhr.addEventListener('load', (data) => {
-		const dataJSON = JSON.parse(data.target.response);
+	fetch('../controller/ProductsMenuController.php?page=getDesigns')
+	.then(res => res.ok ? Promise.resolve(res) : Promise.reject(res))
+	.then(res => res.json())
+	.then(res => {
 
 		const color_filter = document.getElementById("design--filter");
 		const fragment = document.createDocumentFragment();
 
 
-		for (const size of dataJSON) {
+		for (const size of res) {
 			let link = document.createElement("a");
 			link.textContent = size.NOMBRE.charAt(0).toUpperCase();
 			link.textContent += size.NOMBRE.slice(1);
@@ -167,8 +151,6 @@ const getDesignsList = () => {
 		}
 		color_filter.appendChild(fragment);
 	});
-
-	xhr.send();
 }
 getDesignsList();
 
