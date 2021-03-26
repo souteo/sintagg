@@ -7,11 +7,15 @@ try {
     
     $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-    $user=$_POST["user"];
+    $nombre=$_POST["nombre"];
+
+    $apellido=$_POST["apellido"];
+
+    $user=$nombre . " " . $apellido;
     
     $pass=$_POST["pw"];
     $pass_encriptada = password_hash($pass, PASSWORD_DEFAULT, array("cost"=>13));
-    $mail=$_POST["user"];
+    $mail=$_POST["mail"];
     $fecha_nac=$_POST["fecha_nac"];
     
     $sql= "INSERT INTO `usuarios`(`nombre_usuario`, `contraseña_usuario`, `mail_usuario`, `fechaNac_usuario`) VALUES (:user, :pass, :mail, :fecha_nac)";
