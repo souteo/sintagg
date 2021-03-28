@@ -58,7 +58,7 @@ input:-webkit-autofill:active {
   outline: 2px solid grey;
 }
 
-.topnav--link {
+[class^='topnav--link'] {
   padding: 5px 15px;
   background-color: transparent;
   margin: 0 20px;
@@ -70,7 +70,11 @@ input:-webkit-autofill:active {
   font-weight: 300;
 }
 
-.topnav--link:hover {
+.topnav--link--chart{
+  min-width: max-content;
+}
+
+[class^='topnav--link']:hover {
   border-top: 2px solid var(--primario);
   border-left: 2px solid var(--primario);
   box-shadow: 2px 2px var(--secundario);
@@ -78,7 +82,7 @@ input:-webkit-autofill:active {
   transition-duration: 0.2s;
 }
 
-.topnav--link:active {
+[class^='topnav--link']:active {
   border-top: 2px solid var(--primario);
   border-left: 2px solid var(--primario);
   box-shadow: -3px -2px var(--secundario);

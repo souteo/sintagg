@@ -7,7 +7,7 @@ let fdiseño = false;
 let ftalle = false;
 
 const menu = document.getElementById("maincontainer--menu");
-
+const productsList = document.getElementById("productslist");
 const restart = document.getElementById("restart");
 
 
@@ -39,15 +39,15 @@ const printColorsList = () => {
 //printColorsList();
 
 
-
+//imprimir los productos 
 const printProductos = (data) => {
-	const productsList = document.getElementById("productslist");
 	const fragment = document.createDocumentFragment();
 
 	for (const product of data) {
 		let p = document.createElement("a");
-		p.classList.add("maincontainer--productslist--product")
-
+		p.classList.add("maincontainer--productslist--product");
+		p.setAttribute('draggable', true);
+		
 		let title = document.createElement("h2");
 		let design = product.DISEÑO.charAt(0).toLowerCase();
 		design += product.DISEÑO.slice(1);
@@ -104,6 +104,19 @@ const getProductos = (filter, value, mostrar) => {
 		})
 }
 getProductos("getAll", null, true);
+
+productsList.addEventListener('dragstart',(e) => {
+	e.preventDefault();
+	let obj;
+	e.target.nodeName=="A"? obj = e.target : obj= e.target.parentElement;
+	let id = obj.firstElementChild.src;
+	id= id.slice(-8);
+	var regex = /(\d+)/g;
+	
+	console.log(id.match(regex));
+	
+	
+} );
 
 //reiniciar filtros
 restart.addEventListener('click', (e) => {

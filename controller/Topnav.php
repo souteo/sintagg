@@ -26,6 +26,9 @@ if (isset($_SESSION["user"])) {
     echo '<a class="topnav--link" href="Account.html"> CUENTA </a>';
     echo '</li>';
     echo '<li class="topnav--item">';
+    echo '<a class="topnav--link--chart" href="Chart.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>';
+    echo '</li>';
+    echo '<li class="topnav--item">';
     echo '<a class="topnav--link" href="../controller/Logout.php"> CERRAR SESION </a>';
     echo '</li>';
 } else {

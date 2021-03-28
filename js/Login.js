@@ -11,6 +11,7 @@ const mainform = document.getElementById('mainform');
 
 //inputs
 const signUp = document.getElementById('signUpBtn');
+console.log(signUp);
 const submitBtn = document.getElementById('submitBtn');
 const apellidoInput = document.getElementById('apellidoInput');
 const nombreInput = document.getElementById('nombreInput');
@@ -30,17 +31,11 @@ signUp.addEventListener("click", () => {
         titulo.textContent = "REGISTRARSE";
         submitBtn.textContent = "Crear cuenta";
         mainform.setAttribute('action', '../controller/SignUpValidation.php')
-        fecha_nacInput.setAttribute('required', 'true');
-        nombreInput.setAttribute('required', 'true');
-        apellidoInput.setAttribute('required', 'true');
     }
     else {
         titulo.textContent = "INICIAR SESIÓN";
         submitBtn.textContent = "Iniciar sesion";
         mainform.setAttribute('action', '../controller/ValidacionLogin.php')
-        fecha_nacInput.removeAttribute("required");
-        nombreInput.removeAttribute("required");
-        apellidoInput.removeAttribute("required");
     }
 });
 
