@@ -13,14 +13,14 @@ export class Shirt {
         return colors
     } 
 
-    constructor(id, talle, precio, diseño, descripción){
+    constructor(id, size, price, design, description){
         this.id = id;
-        this.talle = talle;
-        this.precio = precio;
-        this.diseño = diseño;
-        this.descripción = descripción;
+        this.size = size;
+        this.price = price;
+        this.design = design;
+        this.description = description;
 
-        this.getColors(33).then(res =>{
+        this.getColors(id).then(res =>{
             this.colors = res;
         })
     }
