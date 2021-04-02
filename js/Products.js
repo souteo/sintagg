@@ -1,5 +1,5 @@
 import { getTopnav } from './PageModel.js';
-
+import { Shirt } from '../model/Shirt.js';
 getTopnav();
 
 let productos;
@@ -10,6 +10,8 @@ const menu = document.getElementById("maincontainer--menu");
 const productsList = document.getElementById("productslist");
 const restart = document.getElementById("restart");
 
+let shirt = new Shirt(33,"","","","");
+setTimeout(function(){ console.log(shirt.colors); }, 700);
 
 //Obtener la lista de filtros por color
 const printColorsList = () => {
@@ -119,7 +121,7 @@ productsList.addEventListener('dragstart',(e) => {
 } );
 
 //reiniciar filtros
-restart.addEventListener('click', (e) => {
+restart.addEventListener('click', () => {
 	restart.classList.add("hidden");
 	getProductos("getAll", null, true);
 })

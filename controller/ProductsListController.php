@@ -11,6 +11,12 @@ switch ($filter){
         
         echo json_encode($resultado);
         break;
+    case "getShirtColors":
+        $id = $value;
+        $resultado = $remeras->getColoresDeUnaRemera($id)->fetchAll(PDO::FETCH_ASSOC);
+        
+        echo json_encode($resultado);
+        break;
     case "maincontainer--menu--filter--sortByPrice":
         if ($value=="sortByPriceLTH") {
             $resultado = $remeras->getTodasLasRemerasPorPrecio(true)->fetchAll(PDO::FETCH_ASSOC);

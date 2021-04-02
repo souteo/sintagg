@@ -83,4 +83,24 @@ class GetShirt extends Connection
 
         $this->conexiondb = null;
     }
+
+    //Obtener los colores de una remera
+    public function getColoresDeUnaRemera($id){
+        $sql = "SELECT colores.nombre_color AS COLOR, remeras_colores.id_remera AS REMERA FROM remeras_colores JOIN colores ON colores.id_color = remeras_colores.id_color WHERE remeras_colores.id_remera = :id;";
+        
+
+        $sentencia = $this->conexiondb->prepare($sql, array(
+            PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY
+        ));
+        
+        $sentencia->bindValue(':id', $id, PDO::PARAM_STR);
+        
+        $sentencia->execute();
+        
+        return $sentencia;
+        
+        $sentencia->closeCursor();
+        
+        $this->conexiondb = null;
+    }
 }
