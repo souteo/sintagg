@@ -2,7 +2,7 @@
 export const getTopnav = ()  => {
 	let xhr = new  XMLHttpRequest();
 	
-	xhr.open('GET', `../controller/Topnav.php`);
+	xhr.open('GET', `../php/Topnav.php`);
 	
 	xhr.addEventListener('load', (data)  => {
 		const topnav = data.target.response;
@@ -19,7 +19,7 @@ export const getTopnav = ()  => {
 export function getSession(){
 	let xhr = new  XMLHttpRequest();
 	
-	xhr.open('GET', `../controller/Session.php`);
+	xhr.open('GET', `../php/Session.php`);
 	
 	xhr.addEventListener('load', (data)  => {
 		if(data.target.response!=1){
